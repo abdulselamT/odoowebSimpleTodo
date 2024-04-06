@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="jsTemplate" xml:space="preserve">
+<t t-name="Leon_Todo.viewtodo">
+              <tbody id="todo_list_view">
+              <t t-set="counter" t-value="1"/>
+               <tr t-foreach="todos" t-as="todo" t-key="el">
+                  <th scope="row"><t t-esc="counter"/></th>
+                  <t t-set="counter" t-value="counter + 1"/>
+
+                  <td t-out="todo.task_title"/>
+                  <td t-out="todo.status"/>
+                  <td style="display:flex;gap:20px;">
+                    <button  type="button" t-att-value="todo.id" class="btn btn-danger delete">Delete</button>
+                    <button  type="button" t-att-value="todo.id" class="btn btn-primary edit">Edit</button>
+
+                  </td>
+                </tr>
+              </tbody>
+           
+              
+</t>
+</templates>

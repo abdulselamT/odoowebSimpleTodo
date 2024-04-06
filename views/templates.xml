@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="todo" model="website.page">
+            <field name="name">Todo</field>
+            <field name="is_published" eval="True"/>
+            <field name="is_in_menu" eval="True"/>
+            <field name="key">Leon_Todo.viewtodo</field>
+            <field name="url">/todo</field>
+            <field name="type">qweb</field>
+             <field name="arch" type="xml">
+                <t t-name="Leon_Todo.viewtodo">
+                 <t t-call="website.layout">
+                    
+                    <section class="col-12" style="background-color: #eee;">
+  <div id="add_todo" class="container col-12">
+    <div class="row d-flex">
+      <div class="col col-lg-12 col-xl-12">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+         
+            <h4 class="text-center my-3 pb-3">To Do App<span t-out="count"/></h4>
+
+            <form  style="display:flex; justify-content:center; gap:40px;" class="">
+              <div>
+                <div class="form-outline">
+                  <input role="0" required="required" name = "task_title" type="text" id="input1" class="form-control" />
+                  <label class="form-label" for="form1">Enter a task here</label>
+                </div>
+              </div>
+              <div>
+              <input value="0" id="role" type="hidden"/>
+                <select role="0" name="status" class="form-select" id="input2">
+                    <option value="pending" selected="pending">Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+                  <label class="form-label" for="form1">status</label>
+              </div>
+
+              <div>
+              <div class="form-outline">
+                <button id="update_save" type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+
+              
+            </form>
+            
+            <table  class="table mb-12 table-responsive">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="todo_list_view">
+               <t t-set="counter" t-value="1"/>
+               <tr t-foreach="todos" t-as="todo" t-key="el">
+                  <th scope="row"><t t-esc="counter"/></th>
+                  <t t-set="counter" t-value="counter + 1"/>
+
+                  <td t-out="todo.task_title"/>
+                  <td t-out="todo.status"/>
+                  <td style="display:flex;gap:20px;">
+                    <button  type="button" t-att-value="todo.id" class="btn btn-danger delete">Delete</button>
+                    <button  type="button" t-att-value="todo.id" class="btn btn-primary edit">Edit</button>
+
+                  </td>
+                </tr>
+              </tbody>
+               
+              
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>    
+
+                 </t>
+                 </t>
+                </field>
+        </record>
+    </data>
+</odoo>
+
+

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+Leon_Todo.access_leon_todo,access_leon_todo,Leon_Todo.model_leon_todo,base.group_user,1,1,1,1
