@@ -35,7 +35,7 @@ class LeonTodo(models.Model):
         ('completed', 'Completed'),
         ('in_progress', 'In Progress')],
         string='Status', default='pending')
-
+```
 
 ## Implementing JavaScript Controllers
 
