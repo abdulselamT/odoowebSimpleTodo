@@ -17,15 +17,15 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 
 ## Setting Up the Development Environment
 
-Start by installing Odoo and setting up a custom module for your CRUD application.
-
+clone the repository and add to your addons and install
 ## Creating the Model
 
 Define the structure of your model and add fields for CRUD operations.
 
 ## Implementing JavaScript Controllers
 
-Create JavaScript files to handle CRUD operations and interact with Odoo models.
+Create JavaScript files to handle CRUD operations and interact with Odoo models. the requests are done via rpc but you can use ajax or others
+
 
 ## Performing RPC Calls
 
@@ -33,7 +33,7 @@ Learn about Remote Procedure Calls (RPC) and make asynchronous calls to the Odoo
 
 ## Querying Data from JavaScript
 
-Fetch data from Odoo models, filter, sort, and display it in the frontend.
+Fetch data from Odoo models, filter, sort, and display it in the frontend. using orm service from odoo
 
 ## Utilizing Odoo Assets
 
