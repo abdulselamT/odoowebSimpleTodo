@@ -8,12 +8,13 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 
 1. [Setting Up the Development Environment](#setting-up-the-development-environment)
 2. [Creating the Model](#creating-the-model)
-3. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
-4. [Performing RPC Calls](#performing-rpc-calls)
-5. [Querying Data from JavaScript](#querying-data-from-javascript)
-6. [Utilizing Odoo Assets](#utilizing-odoo-assets)
-7. [Implementing Notifications and Dialogs](#implementing-notifications-and-dialogs)
-8. [Conclusion](#conclusion)
+3. [Creating the Controller](#creating-the-controller)
+4. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
+5. [Performing RPC Calls](#performing-rpc-calls)
+6. [Querying Data from JavaScript](#querying-data-from-javascript)
+7. [Utilizing Odoo Assets](#utilizing-odoo-assets)
+8. [Implementing Notifications and Dialogs](#implementing-notifications-and-dialogs)
+9. [Conclusion](#conclusion)
 
 ## Setting Up the Development Environment
 
@@ -36,7 +37,8 @@ class LeonTodo(models.Model):
         ('in_progress', 'In Progress')],
         string='Status', default='pending')
 ```
-
+## Creating The Controller
+    you will have to create controller
 ## Implementing JavaScript Controllers
 
 Create JavaScript files to handle CRUD operations and interact with Odoo models. the requests are done via rpc but you can use ajax or others
