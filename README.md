@@ -11,8 +11,9 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 3. [Creating the Controller](#creating-the-controller)
 4. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
    
-4.1. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
-4.2. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
+   4.1. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
+
+   4.2. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
 
 6. [Performing RPC Calls](#performing-rpc-calls)
 7. [Querying Data from JavaScript](#querying-data-from-javascript)
