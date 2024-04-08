@@ -1,4 +1,4 @@
-# My Project
+# Crud WebAPP Odoo
 
 ## Description
 This project is aimed at ...
