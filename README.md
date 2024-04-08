@@ -101,6 +101,15 @@ Create JavaScript files in the static directory commonly static/src/js and add i
 ## Performing RPC Calls
 
 Learn about Remote Procedure Calls (RPC) and make asynchronous calls to the Odoo server.
+```js
+this.rpc("/create_todo", {
+            task_title: this.$el.find("#input1").val(),
+            id:this.$el.find("#role").val(),
+            important:this.$el.find("#important").prop("checked"),
+            status:this.$el.find("#input2").val()
+        }).then((result)=> {
+}
+```
 
 ## Querying Data from JavaScript
 
