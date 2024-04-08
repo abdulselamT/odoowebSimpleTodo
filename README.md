@@ -46,7 +46,6 @@ import json
 
 
 class TodoWebController(http.Controller):
-
     @http.route('/create_todo', type='json', auth='user', website=True, csrf=False)
     def create_todo(self, **post):
         todo = request.env['leon.todo'].sudo().browse(int(post.get('id')))
