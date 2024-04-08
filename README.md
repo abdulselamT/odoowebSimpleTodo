@@ -171,7 +171,7 @@ this.notification.add(result.status, {
 ```
 ```js
 
-```
+
  this.dialog.add(ConfirmationDialog,{
             title:"please confirm",
             body:"are you sure to delete task #"+this.current_todo[0].task_title,
