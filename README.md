@@ -10,11 +10,12 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 2. [Creating the Model](#creating-the-model)
 3. [Creating the Controller](#creating-the-controller)
 4. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
-5. [Performing RPC Calls](#performing-rpc-calls)
-6. [Querying Data from JavaScript](#querying-data-from-javascript)
-7. [Utilizing Odoo Assets](#utilizing-odoo-assets)
-8. [Implementing Notifications and Dialogs](#implementing-notifications-and-dialogs)
-9. [Conclusion](#conclusion)
+5. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
+6. [Performing RPC Calls](#performing-rpc-calls)
+7. [Querying Data from JavaScript](#querying-data-from-javascript)
+8. [Utilizing Odoo Assets](#utilizing-odoo-assets)
+9. [Implementing Notifications and Dialogs](#implementing-notifications-and-dialogs)
+10. [Conclusion](#conclusion)
 
 ## Setting Up the Development Environment
 
@@ -82,7 +83,7 @@ class TodoWebController(http.Controller):
 ## Implementing JavaScript Controllers
 
 Create JavaScript files to handle CRUD operations and interact with Odoo models. the requests are done via rpc but you can use ajax or others
-
+### Subtopic: Handling CRUD Operations
 
 ## Performing RPC Calls
 
