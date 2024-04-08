@@ -146,7 +146,12 @@ this.rpc("/create_todo", {
         }).then((result)=> {
 }
 ```
+```js
 
+todos = await this.orm.searchRead("leon.todo", [['create_uid','=',this.user_id]], ["task_title","status","important"])
+console.log(todos)
+
+```
 ## Querying Data from JavaScript
 
 Fetch data from Odoo models, filter, sort, and display it in the frontend. using orm service from odoo
