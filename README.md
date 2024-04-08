@@ -95,8 +95,9 @@ Create JavaScript files in the static directory commonly static/src/js and add i
             'Leon_Todo/static/src/scss/styles.css',
         ],
 ```
-```js
 there are modules that we need to import for this app
+
+```js
 import publicWidget from '@web/legacy/js/public/public_widget';
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { renderToElement } from "@web/core/utils/render"
