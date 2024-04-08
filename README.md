@@ -10,8 +10,10 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 2. [Creating the Model](#creating-the-model)
 3. [Creating the Controller](#creating-the-controller)
 4. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
+   
 4.1. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
 4.2. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
+
 6. [Performing RPC Calls](#performing-rpc-calls)
 7. [Querying Data from JavaScript](#querying-data-from-javascript)
 8. [Utilizing Odoo Assets](#utilizing-odoo-assets)
