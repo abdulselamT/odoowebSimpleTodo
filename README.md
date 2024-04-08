@@ -95,7 +95,21 @@ Create JavaScript files in the static directory commonly static/src/js and add i
             'Leon_Todo/static/src/scss/styles.css',
         ],
 ```
-   
+The Widget class is really an important building block of the user interface. Pretty much everything in the user interface is under the control of a widget. The Widget class is defined in the module web.Widget, in widget.js.
+```js
+import publicWidget from '@web/legacy/js/public/public_widget';
+publicWidget.registry.todo = publicWidget.Widget.extend({
+       'selector': '#add_todo',
+   init(parent, options) {
+        this._super(...arguments);
+      }
+  async start() {
+      // code when your page is starting
+    },
+/// add other functions here
+})
+export default publicWidget.registry.todo;
+```
 ### Handling CRUD Operations
 
 ## Performing RPC Calls
