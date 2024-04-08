@@ -86,7 +86,16 @@ class TodoWebController(http.Controller):
    ```
 ## Implementing JavaScript Controllers
 
-Create JavaScript files to handle CRUD operations and interact with Odoo models. the requests are done via rpc but you can use ajax or others
+Create JavaScript files in the static directory commonly static/src/js and add in your manifest file
+```python
+ 'assets': {
+        'web.assets_frontend': [
+            'Leon_Todo/static/src/xml/todo.xml',
+            'Leon_Todo/static/src/js/todo.js',
+            'Leon_Todo/static/src/scss/styles.css',
+        ],
+```
+   
 ### Handling CRUD Operations
 
 ## Performing RPC Calls
