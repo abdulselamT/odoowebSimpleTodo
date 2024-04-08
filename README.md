@@ -1,1 +1,8 @@
-this is to understand odoos website architecture
+# My Project
+
+## Description
+This project is aimed at ...
+
+## Installation
+To install, simply run:
+
