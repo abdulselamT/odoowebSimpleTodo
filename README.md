@@ -115,6 +115,19 @@ export default publicWidget.registry.todo;
 ## Performing RPC Calls
 
 Learn about Remote Procedure Calls (RPC) and make asynchronous calls to the Odoo server.
+you have to initaialize init method 
+``js
+ init(parent, options) {
+        this._super(...arguments);
+        this.count=0;
+        this.orm = this.bindService("orm");
+        this.notification=this.bindService("notification")
+        this.dialog=this.bindService("dialog")
+        this.rpc=this.bindService('rpc')
+        
+        
+    },
+```
 ```js
 this.rpc("/create_todo", {
             task_title: this.$el.find("#input1").val(),
