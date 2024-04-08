@@ -94,7 +94,14 @@ Create JavaScript files in the static directory commonly static/src/js and add i
             'Leon_Todo/static/src/js/todo.js',
             'Leon_Todo/static/src/scss/styles.css',
         ],
+```js
+there are modules that we need to import for this app
+import publicWidget from '@web/legacy/js/public/public_widget';
+import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
+import { renderToElement } from "@web/core/utils/render"
+import { session } from '@web/session';
 ```
+
 The Widget class is really an important building block of the user interface. Pretty much everything in the user interface is under the control of a widget. The Widget class is defined in the module web.Widget, in widget.js.
 ```js
 import publicWidget from '@web/legacy/js/public/public_widget';
