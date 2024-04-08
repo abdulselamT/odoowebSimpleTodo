@@ -163,7 +163,30 @@ Manage static assets like CSS and JavaScript, integrate external libraries, and 
 ## Implementing Notifications and Dialogs
 
 Display success/error messages, create custom dialogs for user interaction, and enhance user experience with feedback mechanisms.
+```js
+this.notification.add(result.status, {
+                        type: "danger",
+                        
+                      });
+```
+```js
 
+```
+ this.dialog.add(ConfirmationDialog,{
+            title:"please confirm",
+            body:"are you sure to delete task #"+this.current_todo[0].task_title,
+           
+           
+            confirm:async ()=>{
+                await this.rpc("/delete_todo", {
+                    id: $(event.currentTarget).attr('value'),
+                }).then((result)=> {
+                    this.notification.add(result.status, {
+                        type: "danger",
+                        
+                      });
+                });
+```
 ## Conclusion
 
 Congratulations on completing the guide! You now possess the skills to develop robust web applications within the Odoo framework. Keep exploring and refining your development skills to create even more powerful applications in Odoo.
