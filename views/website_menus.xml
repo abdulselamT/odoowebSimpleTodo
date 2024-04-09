@@ -5,7 +5,6 @@
             <field name="name">Todo</field>
             <field name="url">/todo</field>
             <field name="parent_id" ref="website.main_menu"/>
-            <!--<field name="page_id" ref="website_form.add_partners"/>-->
         </record>
     </data>
 </odoo>

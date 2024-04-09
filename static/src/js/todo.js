@@ -1,15 +1,15 @@
 /** @odoo-module  **/
 
 import publicWidget from '@web/legacy/js/public/public_widget';
-import { useService } from "@web/core/utils/hooks";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { renderToElement } from "@web/core/utils/render"
+import { session } from '@web/session';
 
 publicWidget.registry.todo = publicWidget.Widget.extend({
     'selector': '#add_todo',
     'template':'Leon_Todo.viewtodo',
     'events': {
-        'change #input1':'_alert_change',
+        
         'submit':'_update_todo_html',
         'click .delete':'_delete_todo',
         'click .edit':'_edit_todo',
@@ -21,14 +21,14 @@ publicWidget.registry.todo = publicWidget.Widget.extend({
         this.orm = this.bindService("orm");
         this.notification=this.bindService("notification")
         this.dialog=this.bindService("dialog")
-        this.effect = this.bindService("effect")
         this.rpc=this.bindService('rpc')
         
         
     },
 
     async start() {
-        
+        this.user_id=await session.user_id
+
     },
     
     async _update_todo_html(ev){
@@ -38,6 +38,7 @@ publicWidget.registry.todo = publicWidget.Widget.extend({
         await this.rpc("/create_todo", {
             task_title: this.$el.find("#input1").val(),
             id:this.$el.find("#role").val(),
+            important:this.$el.find("#important").prop("checked"),
             status:this.$el.find("#input2").val()
         }).then((result)=> {
             this.status=result.status
@@ -48,51 +49,17 @@ publicWidget.registry.todo = publicWidget.Widget.extend({
         })
         
         const content = renderToElement(this.template, {
-            string: "QWEB Tutorials using Javascript",
-            array: [1,2,3,4,5],
-            todos:await this.orm.searchRead("leon.todo", [], ["task_title","status"]),
-            email: "ajscriptmedia@gmail.com",
+            todos:await this.orm.searchRead("leon.todo", [['create_uid','=',this.user_id]], ["task_title","status","important"]),
         })
         
         this.$('#todo_list_view').replaceWith(content);
         this.$el.find("#input1").val("")
+        this.$el.find("#input2").val("pending")
         this.$('#update_save').text("save");
+        this.$el.find("#important").prop('checked',false)
 
         this.$el.find("#role").val("0")
 
-
-    },
-    _oneClickCheckBox(event) {
-        console.log("Do you want ", this.$el.value);
-        var $button = $(event.currentTarget);
-        console.log($button)
-        var attrValue = $button.attr('value');
-        
-        console.log('Attribute value:', attrValue);
-        
-        this.dialog.add(ConfirmationDialog,{
-            title:"please confirm",
-            body:"are you usure to delete it ?",
-            confirm:()=>{
-                alert("we wiil delete");
-            },
-            cancel:()=>{alert("cancelled")},
-            hide:()=>{alert("nice")}
-        
-        }
-            );
-    
-
-
-    }, 
-    _alert_change(event) {
-        console.log("Do you want ", this.$el.find("#input1").val());
-       
-    },
-    _save_todo(event){
-
-        
-          this.$('#upp').html("<h2> here we go</h2>");
 
     },
     async _delete_todo(event){
@@ -101,26 +68,27 @@ publicWidget.registry.todo = publicWidget.Widget.extend({
         this.dialog.add(ConfirmationDialog,{
             title:"please confirm",
             body:"are you sure to delete task #"+this.current_todo[0].task_title,
-            
+           
+           
             confirm:async ()=>{
                 await this.rpc("/delete_todo", {
                     id: $(event.currentTarget).attr('value'),
-                }).then(function (result) {
-                    console.log(result)
+                }).then((result)=> {
+                    this.notification.add(result.status, {
+                        type: "danger",
+                        
+                      });
                 });
 
-        this.notification.add("Task Deleted!", {
-            type: "danger",
-            
-          });
+        
         const content = renderToElement(this.template, {
-            todos:await this.orm.searchRead("leon.todo", [], ["task_title"]),
+            todos:await this.orm.searchRead("leon.todo", [], ["task_title","status","important"]),
         })
         
         this.$('#todo_list_view').replaceWith(content);
             },
-            cancel:()=>{alert("cancelled")},
-            hide:()=>{alert("nice")}
+            cancel:()=>{},
+            hide:()=>{}
         
         }
             );
@@ -129,11 +97,13 @@ publicWidget.registry.todo = publicWidget.Widget.extend({
     },
 
    async _edit_todo(event){
-    this.current_todo = await  this.orm.searchRead("leon.todo", [["id","in",[$(event.currentTarget).attr('value')]]], ["task_title","status"])
+    this.current_todo = await  this.orm.searchRead("leon.todo", [["id","in",[$(event.currentTarget).attr('value')]]], ["task_title","status","important"])
     this.$el.find("#input1").val(this.current_todo[0].task_title)
     this.$el.find("#input2").val(this.current_todo[0].status)
     this.$el.find("#role").val(this.current_todo[0].id)
     this.$('#update_save').text("update");
+    this.$el.find("#important").prop('checked',this.current_todo[0].important)
+
     $('html, body').animate({scrollTop: 0}, 'fast');
 
     

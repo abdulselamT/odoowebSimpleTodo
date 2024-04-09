@@ -19,7 +19,7 @@
         <div class="card rounded-3">
           <div class="card-body p-4">
          
-            <h4 class="text-center my-3 pb-3">To Do App<span t-out="count"/></h4>
+            <h4 class="text-center my-3 pb-3">Crud App<span t-out="count"/></h4>
 
             <form  style="display:flex; justify-content:center; gap:40px;" class="">
               <div>
@@ -37,7 +37,12 @@
                 </select>
                   <label class="form-label" for="form1">status</label>
               </div>
-
+              <div class="form-check">
+            <input class="form-check-input" type="checkbox"  id="important" value="True"/>
+            <label class="form-check-label" for="exampleCheckbox">
+              is Important
+            </label>
+          </div>
               <div>
               <div class="form-outline">
                 <button id="update_save" type="submit" class="btn btn-primary">Save</button>
@@ -61,8 +66,7 @@
                <tr t-foreach="todos" t-as="todo" t-key="el">
                   <th scope="row"><t t-esc="counter"/></th>
                   <t t-set="counter" t-value="counter + 1"/>
-
-                  <td t-out="todo.task_title"/>
+                  <td t-att-class="('isimportant' if todo.important else 'isnotimportant')" t-out="todo.task_title"/>
                   <td t-out="todo.status"/>
                   <td style="display:flex;gap:20px;">
                     <button  type="button" t-att-value="todo.id" class="btn btn-danger delete">Delete</button>
