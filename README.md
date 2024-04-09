@@ -43,7 +43,12 @@ class LeonTodo(models.Model):
         string='Status', default='pending')
 ```
 ## Creating The Controller
-you will have to create controller
+- When developing your application, it's essential to create controllers to handle various functionalities.
+- These controller functions are annotated with decorators and mapped to specific routes.
+- Each function within the controller must have a unique name.
+- Controllers can serve as endpoints to process requests or render pages by passing additional information as context.
+- The `type` attribute specifies the return type of the controller, while `auth` determines whether access is public or restricted to authenticated users.
+
 ```python
 from odoo import http
 from odoo.http import request
