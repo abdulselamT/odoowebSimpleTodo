@@ -91,7 +91,8 @@ class TodoWebController(http.Controller):
    ```
 ## Implementing JavaScript
 
-Create JavaScript files in the static directory commonly static/src/js and add in your manifest file by defolt those js and css file will beloaded when the page loaded so there is no further configuration in xml file
+Create JavaScript files within the static directory, typically located at static/src/js. Include these files in your manifest file by default. As a result, these JavaScript and CSS files will automatically load when the page loads, requiring no additional configuration in the XML file.
+
 ```python
  'assets': {
         'web.assets_frontend': [
