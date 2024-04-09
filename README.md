@@ -110,11 +110,18 @@ import { renderToElement } from "@web/core/utils/render"
 import { session } from '@web/session';
 ```
 
-The Widget class is really an important building block of the user interface. Pretty much everything in the user interface is under the control of a widget. The Widget class is defined in the module web.Widget, in widget.js.
+- The Widget class is a crucial element in the user interface, controlling most UI components.
+- It is defined within the web.Widget module in widget.js.
+- The selector key is utilized to select IDs from your XML.
+- Events are represented as a dictionary in the class, mapping CSS selectors to methods that are triggered by specific actions like clicks or changes.
+- Examples demonstrating these concepts can be found in the repository.
+
 ```js
 import publicWidget from '@web/legacy/js/public/public_widget';
 publicWidget.registry.todo = publicWidget.Widget.extend({
        'selector': '#add_todo',
+       'events':{
+}
    init(parent, options) {
         this._super(...arguments);
       }
