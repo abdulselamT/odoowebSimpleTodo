@@ -1,4 +1,4 @@
-# CRUD Application in Odoo
+# CRUD Web Application in Odoo
 
 ## Introduction
 
