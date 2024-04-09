@@ -9,7 +9,7 @@ This repository contains a comprehensive guide to developing a CRUD (Create, Rea
 1. [Setting Up the Development Environment](#setting-up-the-development-environment)
 2. [Creating the Model](#creating-the-model)
 3. [Creating the Controller](#creating-the-controller)
-4. [Implementing JavaScript Controllers](#implementing-javascript-controllers)
+4. [Implementing JavaScript](#implementing-javascript)
    
    4.1. - [Subtopic: Handling CRUD Operations](#subtopic-handling-crud-operations)
 
@@ -84,9 +84,9 @@ class TodoWebController(http.Controller):
        else:
             return {"status":"The record doesn't exist"}
    ```
-## Implementing JavaScript Controllers
+## Implementing JavaScript
 
-Create JavaScript files in the static directory commonly static/src/js and add in your manifest file
+Create JavaScript files in the static directory commonly static/src/js and add in your manifest file by defolt those js and css file will beloaded when the page loaded so there is no further configuration in xml file
 ```python
  'assets': {
         'web.assets_frontend': [
@@ -164,7 +164,7 @@ Manage static assets like CSS and JavaScript, integrate external libraries, and 
 
 Display success/error messages, create custom dialogs for user interaction, and enhance user experience with feedback mechanisms.
 ```js
-this.notification.add(result.status, {
+this.notification.add("Task is deleted", {
                         type: "danger",
                         
                       });
