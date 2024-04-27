@@ -1,5 +1,5 @@
 # CRUD Web Application in Odoo
-
+change the repo name to **Leon_Todo**
 ## Introduction
 
 This repository contains a comprehensive guide to developing a CRUD (Create, Read, Update, Delete) application in Odoo. By following this guide, you will gain a solid understanding of Odoo-17 website development, covering JavaScript controllers, models, RPC calls, asset usage, notifications, and dialogs.
